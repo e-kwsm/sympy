@@ -376,7 +376,7 @@ this will generate isympy.1 in the current directory. -->
 		<title>FILES</title>
 		<variablelist>
 			<varlistentry>
-				<term><filename>${HOME}/.sympy-history</filename></term>
+				<term><filename>${XDG_STATE_HOME:=$HOME/.local/state}/sympy-history</filename></term>
 				<listitem>
 					<para>Saves the history of commands when using the python
                         shell as backend.</para>

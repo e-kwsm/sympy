@@ -285,7 +285,10 @@ def init_python_session():
                 readline.parse_and_bind('tab: complete')
 
                 if hasattr(readline, 'read_history_file'):
-                    history = os.path.expanduser('~/.sympy-history')
+                    xdg_state_home = (os.getenv('XDG_STATE_HOME') or
+                                      os.path.expanduser('~/.local/state'))
+                    os.makedirs(xdg_state_home, exist_ok=True)
+                    history = os.path.join(xdg_state_home, 'sympy-history')
 
                     try:
                         readline.read_history_file(history)
